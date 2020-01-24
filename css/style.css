@@ -133,15 +133,21 @@ header {
 
 .main-banner {
     background: url(../img/main_banner.jpg) no-repeat;
-    height: 460px;
-    padding-top: 180px;
-    padding-left: 140px;
+    width: calc(100% + 40px);
+    height: 640px;
+    background-size: cover;
+    margin-left: -20px;
+    margin-right: -20px;
 }
 
 .main-banner-wrapper {
-    width: 540px;
-    height: 278px;
-    
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: inherit;
 }
 
 .main-banner-header {
@@ -167,6 +173,11 @@ header {
     margin-left: calc(50% - 83px);
 }
 
+.services {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+}
 .services-list {
     display: grid;
     grid-template-columns: repeat(4,1fr);
