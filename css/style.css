@@ -109,6 +109,7 @@ header {
 .main-menu {
     display: flex;
     justify-content: space-between;
+    margin-top: 30px;
 }
 
 .main-menu-list{
@@ -329,14 +330,16 @@ header {
 
 .best-feature {
     background: url(../img/best_feature_background.png) no-repeat;
+    background-size: cover;
     height: 592px;
     width: calc(100% + 40px);
     margin-left: -20px;
     margin-right: -20px;
+    padding-top: 150px;
 }
 
 .best-feature {
-    padding-top: 150px;
+    
 }
 
 .best-feature-list {
