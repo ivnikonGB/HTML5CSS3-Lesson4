@@ -31,7 +31,6 @@ body {
 
 body {
     margin: 0;
-    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -67,9 +66,24 @@ a {
     box-shadow: 0 2px 5px #333333;
 }
 
-header {
-    width: 1200px;
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+.container {
+    padding: 0 20px;
+    box-sizing: border-box;
     margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
 }
 
 .logo-contacts {
@@ -141,6 +155,7 @@ header {
 
 .main-menu {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     margin-top: 30px;
 }
@@ -153,7 +168,8 @@ header {
 
 .main-menu-list{
     display: flex;
-    float: left;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 @media (max-width: 702px) {
@@ -179,16 +195,11 @@ header {
 
 .main-banner {
     background: url(../img/main_banner.jpg) no-repeat center center;
-    width: calc(100% + 40px);
     height: 640px;
     background-size: cover;
-    margin-left: -20px;
-    margin-right: -20px;
 }
 
-.main-banner-wrapper {
-    width: 1200px;
-    margin: 0 auto;
+.main-banner-inside {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -227,12 +238,6 @@ header {
 .services-list {
     display: grid;
     grid-template-columns: repeat(4,1fr);
-}
-
-@media (max-width: 1050px) {
-    .services-list {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
 }
 
 @media (max-width: 800px) {
@@ -336,7 +341,7 @@ header {
 .why-wrapper {
     display: grid;
     grid-template-columns: 1fr 337px 1fr;
-    grid-template-rows: 1fr 1fr;
+    justify-items: center;
 }
 
 @media (max-width: 1050px) {
@@ -352,7 +357,6 @@ header {
 }
 
 .why-picture {
-    background: url(../img/woman_doctor.png) no-repeat center center;
     height: 598px;
     grid-column-start: 2;
     grid-column-end: 3;
@@ -368,11 +372,6 @@ header {
         grid-row-start: 1;
         grid-row-end: 2;
     }
-}
-
-.why-item {
-    margin-left: 160px;
-    margin-top: 160px;
 }
 
 .why-item-header {
@@ -415,11 +414,10 @@ header {
 .best-feature {
     background: url(../img/best_feature_background.png) no-repeat;
     background-size: cover;
-    height: 592px;
     width: calc(100% + 40px);
     margin-left: -20px;
     margin-right: -20px;
-    padding-top: 150px;
+    padding: 150px 0;
 }
 
 .best-feature-list {
@@ -507,17 +505,18 @@ header {
 }
 
 .works-and-creative {
-    width: 1200px;
-    margin: 0 auto;
+    
+    padding-top: 100px;
+}
+
+.works-and-creative-wrapper {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 60px;
-    padding-top: 100px;
-    /* grid-template-areas: "worksHead worksHead ourCreativeHead" "worksDesc worksDesc creativeDesc" "worksUnit1 worksUnit2 heartTreatment" "worksData1 worksData2 heartTreatmentPoints" "readMoreWrap readMoreWrap ."; */
 }
 
 @media (max-width: 1050px) {
-    .works-and-creative {
+    .works-and-creative-wrapper {
         grid-template-columns: 1fr;
     }
 }
@@ -526,7 +525,6 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-    /* grid-template-rows: 1fr 1fr 1fr; */
     grid-template-areas: 
         "worksHeader worksHeader"
         "worksText worksText" 
@@ -537,6 +535,18 @@ header {
 @media (max-width: 1050px) {
     .works {
         justify-items: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .works {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "worksHeader"
+            "worksText"
+            "worksUnit1"
+            "worksUnit2"
+            "readMore";
     }
 }
 
@@ -599,7 +609,6 @@ header {
 }
 
 .creative-header {
-    /* grid-area: ourCreativeHead; */
     color: #494949;
     font-family: "Montserrat Bold";
     font-size: 45px;
@@ -608,7 +617,6 @@ header {
 }
 
 .creative-text {
-    /* grid-area: creativeDesc; */
     color: #6a6a6a;
     font-family: "Open Sans Regular";
     font-size: 16px;
@@ -676,10 +684,6 @@ header {
     padding: 90px 0;
 }
 
-.gallery-container {
-    width: 1200px;
-    margin: 0 auto;
-}
 .gallery-header {
     color: #ffffff;
     font-family: "Montserrat Bold";
@@ -702,14 +706,21 @@ header {
     justify-items: center;
 }
 
-@media (max-width: 850px) {
+@media all and (min-width: 0) and (max-width: 1239px) {
+    .gallery-wrapper {
+        width: 100%;
+        margin: 0 0;
+    }
+}
+
+@media all and (min-width: 810px) and (max-width: 1200px) {
     .gallery-wrapper {
         grid-template-columns: 1fr 1fr;
         grid-gap: 25px;
     }
 }
 
-@media (max-width: 500px) {
+@media all and (min-width: 0) and (max-width: 810px) {
     .gallery-wrapper {
         grid-template-columns: 1fr;
     }
@@ -758,11 +769,6 @@ header {
     padding: 90px 0;
 }
 
-.our-team-container {
-    width: 1200px;
-    margin: 0 auto;
-}
-
 .our-team-header {
     color: #494949;
     font-family: "Montserrat Bold";
@@ -783,7 +789,7 @@ header {
     grid-template-columns: repeat(4, 1fr);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1100px) {
     .our-team-list {
         grid-template-columns: 1fr 1fr;
     }
@@ -818,21 +824,24 @@ header {
 }
 
 .small-banner {
-    height: 176px;
     background-color: #e2e2e2;
     width: calc(100% + 40px);
     float: left;
     margin-left: -20px;
     margin-right: -20px;
     text-align: center;
+    
+}
+
+.small-banner-inside {
     display: grid;
     grid-template-columns: 3fr 1fr;
     align-items: center;
     padding: 30px;
 }
 
-@media (max-width: 850px) {
-    .small-banner {
+@media (max-width: 1075px) {
+    .small-banner-inside {
         grid-template-columns: 1fr;
         justify-items: center;
     }
@@ -858,18 +867,17 @@ footer {
 
 .footer-wrapper {
     background-color: #171717;
+
 }
 
 .footer-main {
     padding: 100px 0;
-    width: 1200px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1200px) {
     .footer-main {
         grid-template-columns: 1fr 1fr;
     }
@@ -965,17 +973,15 @@ footer {
 }
 
 .copyright {
-    background-color: #1a1a1a;
-}
-
-.copyright p {
-    color: #615555;
-    font-family: "Open Sans Regular";
+    width: calc(100% + 40px);
+    float: left;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 50px 0;
+    box-sizing: border-box;
+    color: #6c6c6c;
     font-size: 13px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0.33px;
+    font-family: "Open Sans Regular", sans-serif;
     text-align: center;
-    margin: 0;
-    padding: 10px;
+    background: #1a1a1a;
 }
